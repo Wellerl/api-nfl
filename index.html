@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NFL Explorer</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+  <!-- 🏠 Home -->
+  <section id="homeScreen" class="screen">
+    <img src="./img/logo NFL.png" alt="NFL Logo" class="nfl-logo">
+    <h1>NFL Explorer</h1>
+    <div class="card-container">
+      <div id="teamsCard" class="home-card">Ver Times</div>
+      <div id="playersCard" class="home-card">Ver Jogadores</div>
+    </div>
+  </section>
+
+  <!-- 🏟️ Times -->
+  <section id="teamsSection" class="screen hidden">
+    <header>
+      <button class="back-btn" onclick="goBack()">⬅ Voltar</button>
+      <h2>Todos os Times</h2>
+      <i>Este Projeto utiliza uma API com limite de 100 requisições por dia</i>
+    </header>
+    <div id="teamsGrid" class="grid"></div>
+  </section>
+
+  <!-- 🧍 Jogadores -->
+  <section id="playersSection" class="screen hidden">
+    <header>
+      <button class="back-btn" onclick="goBack()">⬅ Voltar</button>
+      <h2>Quarterbacks</h2>
+    </header>
+    <div id="playersGrid" class="grid"></div>
+  </section>
+
+  <!-- Modal de Time -->
+  <div id="teamModal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true">
+      <span class="close" onclick="closeTeamModal()" aria-label="Fechar">&times;</span>
+      <div class="modal-body">
+        <img id="modalLogo" src="" alt="Logo do Time">
+        <div class="modal-info">
+          <h2 id="modalName"></h2>
+          <p id="modalCity"></p>
+          <p id="modalCoach"></p>
+          <p id="modalStadium"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

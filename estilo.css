@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+:root {
+  --bg: #101010;
+  --card: #1e1e1e;
+  --accent: #e31837;
+  --text: #ffffff;
+  --gray: #bbbbbb;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+}
+
+/* layout principal */
+.screen {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.hidden { display: none; }
+
+.nfl-logo {
+  width: 140px;
+  margin-bottom: 1rem;
+  animation: fadeIn 1s ease-in-out;
+}
+
+h1 { font-size: 2.5rem; margin-bottom: 2rem; font-weight: 800; }
+h2 { font-size: 1.8rem; margin-bottom: 1.5rem; }
+
+/* home cards */
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-card {
+  background: var(--card);
+  padding: 1.5rem 2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-radius: 16px;
+  cursor: pointer;
+  width: 280px;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: all 0.25s ease;
+}
+
+.home-card:hover {
+  background: var(--accent);
+  transform: scale(1.05);
+  border-color: var(--text);
+  box-shadow: 0px 0px 20px rgba(227, 24, 55, 0.5);
+}
+
+/* grids */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+
+.item {
+  background: var(--card);
+  padding: 1.5rem 1rem;
+  border-radius: 16px;
+  transition: transform 0.25s, box-shadow 0.25s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
+}
+
+.item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  background: #fff;
+  border-radius: 50%;
+  padding: 6px;
+  margin-bottom: 0.8rem;
+}
+
+.item p, .item h3 {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+/* botões */
+.back-btn {
+  background: var(--accent);
+  color: var(--text);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  transition: background 0.25s, transform 0.2s;
+}
+
+.back-btn:hover {
+  background: #b9142d;
+  transform: scale(1.05);
+}
+
+/* team borders (mantive) */
+.team-border-Chiefs { border: 3px solid #e31837; }
+.team-border-Bills { border: 3px solid #0e5ee9; }
+.team-border-Ravens { border: 3px solid #7811e6; }
+.team-border-Packers { border: 3px solid #dcdc18; }
+.team-border-Eagles { border: 3px solid #024a56; }
+.team-border-Browns { border: 3px solid #df470f; }
+.team-border-Chargers { border: 3px solid #297ce9; }
+.team-border-Dolphins { border: 3px solid #040d0d; }
+.team-border-Rams { border: 3px solid #2b17a9; }
+.team-border-Lions { border: 3px solid #1b2d95; }
+
+/* footer */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--gray);
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  background: #0b0b0b;
+}
+
+/* animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* responsividade */
+@media (max-width: 600px) {
+  .home-card { width: 90%; }
+  .nfl-logo { width: 100px; }
+  h1 { font-size: 2rem; }
+}
+
+/* ============================= */
+/* Modal styles (adicionados) */
+/* ============================= */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 16px;
+  max-width: 720px;
+  width: 92%;
+  position: relative;
+}
+
+.modal-body {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.modal-body img {
+  width: 160px;
+  height: 160px;
+  background: white;
+  border-radius: 50%;
+  object-fit: cover;
+  padding: 8px;
+  flex-shrink: 0;
+}
+
+.modal-info {
+  text-align: left;
+}
+
+.modal-info h2 { margin-bottom: 8px; }
+.modal-info p { margin: 6px 0; color: var(--gray); font-weight: 600; }
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--text);
+}
+
+@media (max-width: 560px) {
+  .modal-body { flex-direction: column; text-align: center; }
+  .modal-body img { width: 120px; height: 120px; }
+  .modal-info { text-align: center; }
+}
